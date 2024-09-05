@@ -2,7 +2,7 @@ app:
   config:
     file:
       connection_string: 
-        file_path: "C:\\Users\\Girish-Nair\\Documents\\testingpyinstaller\\data.csv"
+        file_path: "E:\\Girish-N-Com-github\\simple-etl\\data.csv"
     database:
       connection_string: 
         database_name: postgres

@@ -1,0 +1,9 @@
+{
+    "file_name": "output_file_name",
+    "delimiter": ";",
+    "columns": [
+        "Date",
+        "sales_A",
+        "sales_B"
+    ]
+}
