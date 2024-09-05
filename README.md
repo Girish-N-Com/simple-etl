@@ -14,3 +14,9 @@ Created read_config and updated the config.yaml file, the read_config.py is used
 Separated the config files for source and target yaml files.
 Updated the read_config.py file to read for both source and target connection_strings.
 Connection to database and file read are successful.
+
+
+Created schemas for file and table in json format.
+These schemas will be used to read and write to file or database table.
+The code is updated to read from an existing file and write to a file with the schema definition.
+Also added the sample data into the current folder with the the output file it creates
