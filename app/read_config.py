@@ -49,47 +49,56 @@ def main():
         
         connection_type = input(str.format("Enter the connection type for {0} (database or file): ",
                                            input_type))
-        
         if connection_type == "database":
             schema_file_path = os.path.join(os.getcwd(), 'schema\\table_schema.json')
             connection_string = config['app']['config']['database']['connection_string']
             conn = connect_to_database(connection_string)
-
-            # Add your database connection code here
-            # For example, you can create a cursor and execute SQL queries
-            cursor = conn.cursor()
-            print("Database connection established successfully.")
-            
-            # read form database function
-            # create write to database function
+            if input_type == "source":
+                # Add your database connection code here
+                # For example, you can create a cursor and execute SQL queries
+                cursor = conn.cursor()
+                print("Database connection established successfully.")
+                # read form database function
+                cursor.execute("SELECT * FROM public.customers")
+                data = cursor.fetchall()
+                print(data)
+                # read form database function
+                # create write to database function
+            elif input_type == "target":
+                # create write to database function
+                cursor = conn.cursor()
+                print("Database connection established successfully.")
+                # create write to database function
+                # cursor.execute("""CREATE TABLE public.customers_new (id INT PRIMARY KEY,
+                #                first_name VARCHAR(50), last_name VARCHAR(50), email VARCHAR(100)""") 
 
             # Don't forget to close the connection when you're done
             conn.close()
         elif connection_type == "file":
             schema_file_path = os.path.join(os.getcwd(), 'schema\\file_schema.json')
             connection_string = config['app']['config']['file']['connection_string']['file_path']
-            # read form file function
-            data = read_from_file(connection_string)
-            
-            # set the fieldnames using the file_schema.json file
-            # reading file schema
-            with open(schema_file_path) as file:
-                schema = json.load(file)
-            print(schema)
-            for num, item in enumerate(data):
-                for new, old in zip(schema['columns'], data[num].keys()):
-                    data[num][new] = data[num].pop(old)
-            print(data)
-            
-            
-            # create write to file function
-            with open(schema['file_name']+'.csv', 'w', newline='') as file:
-                writer = csv.DictWriter(file, delimiter=schema['delimiter'],
-                                        fieldnames=schema['columns'])
-                writer.writeheader()
-                for row in data:
-                    writer.writerow(row)
-            # Do something with the data
+            if input_type == "source":
+                # read form file function
+                data = read_from_file(connection_string)
+            elif input_type == "target":
+                # set the fieldnames using the file_schema.json file
+                # reading file schema
+                with open(schema_file_path) as file:
+                    schema = json.load(file)
+                print(schema)
+                for num, item in enumerate(data):
+                    for new, old in zip(schema['source']['columns'], data[num].keys()):
+                        data[num][new] = data[num].pop(old)
+                print(data)
+                
+                # create write to file function
+                with open(schema['target']['file_name']+'.csv', 'w', newline='') as file:
+                    writer = csv.DictWriter(file, delimiter=schema['source']['delimiter'],
+                                            fieldnames=schema['source']['columns'])
+                    writer.writeheader()
+                    for row in data:
+                        writer.writerow(row)
+                # Do something with the data
         else:
             print("Invalid source type entered.")
 

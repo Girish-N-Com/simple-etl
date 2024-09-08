@@ -1,19 +1,40 @@
 {
-    "table_name": "table_name",
-    "schema_name": "schema_name",
-    "columns": [
-        {
-            "column_name": "column_name",
-            "data_type": "data_type",
-            "is_nullable": "is_nullable",
-            "character_maximum_length": "character_maximum_length",
-            "numeric_precision": "numeric_precision",
-            "numeric_scale": "numeric_scale",
-            "column_default": "column_default",
-            "is_primary_key": "is_primary_key",
-            "is_foreign_key": "is_foreign_key",
-            "foreign_key_table": "foreign_key_table",
-            "foreign_key_column": "foreign_key_column"
-        }
-    ]
+    "source":{
+        "table_name": "table_name",
+        "schema_name": "schema_name",
+        "columns": [
+            {
+                "column_name": "column_name",
+                "data_type": "data_type",
+                "is_nullable": "is_nullable",
+                "character_maximum_length": "character_maximum_length",
+                "numeric_precision": "numeric_precision",
+                "numeric_scale": "numeric_scale",
+                "column_default": "column_default",
+                "is_primary_key": "is_primary_key",
+                "is_foreign_key": "is_foreign_key",
+                "foreign_key_table": "foreign_key_table",
+                "foreign_key_column": "foreign_key_column"
+            }
+        ]
+    },
+    "target":{
+        "table_name": "table_name",
+        "schema_name": "schema_name",
+        "columns": [
+            {
+                "column_name": "column_name",
+                "data_type": "data_type",
+                "is_nullable": "is_nullable",
+                "character_maximum_length": "character_maximum_length",
+                "numeric_precision": "numeric_precision",
+                "numeric_scale": "numeric_scale",
+                "column_default": "column_default",
+                "is_primary_key": "is_primary_key",
+                "is_foreign_key": "is_foreign_key",
+                "foreign_key_table": "foreign_key_table",
+                "foreign_key_column": "foreign_key_column"
+            }
+        ]
+    }
 }

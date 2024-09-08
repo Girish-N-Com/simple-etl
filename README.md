@@ -20,3 +20,7 @@ Created schemas for file and table in json format.
 These schemas will be used to read and write to file or database table.
 The code is updated to read from an existing file and write to a file with the schema definition.
 Also added the sample data into the current folder with the the output file it creates
+
+
+Added if else statements for differentiating source and target.
+Updated the file_schema dn table_schema respectively.
