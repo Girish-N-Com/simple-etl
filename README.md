@@ -24,3 +24,54 @@ Also added the sample data into the current folder with the the output file it c
 
 Added if else statements for differentiating source and target.
 Updated the file_schema dn table_schema respectively.
+
+
+
+
+When the source is set to the database and the target is set to a file,
+When the source is set to the database and the target is set to a database,
+When the source is set to the file and the target is set to a file,
+When the source is set to the file and the target is set to a database,
+
+if source is database
+
+    if, the table in the input schema does not exists, inform the user that
+    table does not exists, cannot proceed
+    else, read the table content
+
+    if, the table in the target does not exists, check with the user if it
+    can be created using the input schema or not
+        if yes, create a new table with the input schema.
+        else, inform the user that without target we cannot write to table.
+
+    if, the target file does not exists, create new file.
+
+elif source is file
+
+    if, input file does not exists in the given path, inform the user
+    File not found!
+    else, read the file content
+    
+    if, the table in the target does not exists, check with the user if it
+    can be created using the input schema or not
+        if yes, create a new table with the input schema and write data to it.
+        else, inform the user that without target we cannot write to table.
+    else, write data to it.
+
+    if, the target file does not exists, create new file.
+
+
+
+Instead of using psycopg2 which can only support postgres database, make use
+of sqlalchemy to generate models for the tables which and create them or 
+read from these model tables from the connected database.
+
+Add a type in the database.yaml file to represent the type of database 
+for sqlalchemy.
+
+
+
+Integrate the above application to be used with API, make use of FastAPI.
+The user should be able run the FastAPI app and invoke an api endpoint to
+start the process of reading from source and writing to the target. The
+endpoint should also be able to take inputs from the user. 
