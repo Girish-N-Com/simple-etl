@@ -88,5 +88,4 @@ Download the code and start the fast api server locally with the command:
 Set schema for database of file with
 - http://simple-etl-fastapi/setSourceSchema -type database/file -schemaType json/yaml -filePath upload_the_file_from_this_path
 - http://simple-etl-fastapi/setTargetSchema -type database/file -schemaType json/yaml -filePath upload_the_file_from_this_path
-- http://simple-etl-fastapi/setTargetSchema -type database/file -schemaType json/yaml -filePath upload_the_file_from_this_path
-- 
+- http://simple-etl-fastapi/startetl
