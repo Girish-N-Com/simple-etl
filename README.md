@@ -75,3 +75,18 @@ Integrate the above application to be used with API, make use of FastAPI.
 The user should be able run the FastAPI app and invoke an api endpoint to
 start the process of reading from source and writing to the target. The
 endpoint should also be able to take inputs from the user. 
+
+
+
+Performing column level transformation outside of the database is more
+costly, complex and time consuming as it will involves more resource/apps.
+This application is helpful for extracting data from source table, if 
+required map the column names to the target column names, and load the 
+extracted data into the target table.
+Download the code and start the fast api server locally with the command:
+-
+Set schema for database of file with
+- http://simple-etl-fastapi/setSourceSchema -type database/file -schemaType json/yaml -filePath upload_the_file_from_this_path
+- http://simple-etl-fastapi/setTargetSchema -type database/file -schemaType json/yaml -filePath upload_the_file_from_this_path
+- http://simple-etl-fastapi/setTargetSchema -type database/file -schemaType json/yaml -filePath upload_the_file_from_this_path
+- 
