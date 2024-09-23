@@ -1,0 +1,12 @@
+app:
+  config:
+    file:
+      connection_string: 
+        file_path: "E:\\Girish-N-Com-github\\simple-etl\\data.csv"
+    database:
+      connection_string: 
+        database_name: postgres
+        host: localhost
+        port: 50520
+        username: postgres
+        password: root

@@ -9,7 +9,8 @@ def read_config(file_path):
         config = yaml.safe_load(file)
     return config
 
-def connect_to_database(config):
+def connect_to_database(connection_string):
+    config = connection_string['app']['config']['database']['connection_string']
     # Extract the necessary information from the config
     host = config['host']
     port = config['port']
@@ -51,7 +52,6 @@ def main():
                                            input_type))
         if connection_type == "database":
             schema_file_path = os.path.join(os.getcwd(), 'schema\\table_schema.json')
-            connection_string = config['app']['config']['database']['connection_string']
             conn = connect_to_database(connection_string)
             if input_type == "source":
                 # Add your database connection code here
